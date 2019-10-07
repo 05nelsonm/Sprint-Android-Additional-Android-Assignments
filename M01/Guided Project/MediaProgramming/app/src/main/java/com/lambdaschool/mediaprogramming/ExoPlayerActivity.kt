@@ -87,6 +87,7 @@ class ExoPlayerActivity : AppCompatActivity() {
     //TODO 12: Do not forget to stop the player when the user navigates away from the screen
     override fun onStop() {
         super.onStop()
+        videoExoPlayer.stop()
     }
 
     //TODO 10: Notice the code to implement and create a mediasource function using URL, returns a mediasource
