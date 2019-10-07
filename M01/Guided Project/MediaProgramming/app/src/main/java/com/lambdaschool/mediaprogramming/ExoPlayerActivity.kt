@@ -52,6 +52,7 @@ class ExoPlayerActivity : AppCompatActivity() {
     }
 
     fun setupVideoPlayerFromFileSystem() {
+        videoExoPlayer.prepare(createRawMediaSource(R.raw.live_views_of_starman))
     }
 
     //TODO 8: Create a function to setup video player with url to stream video through internet.
