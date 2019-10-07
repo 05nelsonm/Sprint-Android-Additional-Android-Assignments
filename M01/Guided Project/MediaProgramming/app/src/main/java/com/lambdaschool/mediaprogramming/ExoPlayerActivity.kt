@@ -28,6 +28,7 @@ also from the internet.
 class ExoPlayerActivity : AppCompatActivity() {
 
     //TODO 4: Declare the variables needed. A simpleExoPlayer instance.
+    lateinit var videoExoPlayer: SimpleExoPlayer
 
     //TODO 5: Notice the url we will be using to streaming mp4 over the internet.
     val URL = "https://archive.org/download/Popeye_forPresident/Popeye_forPresident_512kb.mp4"
@@ -43,6 +44,7 @@ class ExoPlayerActivity : AppCompatActivity() {
         //This function can be switched out with the setupVideoPlayerWithURL to stream the video
         //from the internet.
         setupVideoPlayerFromFileSystem()
+        //setupVideoPlayerWithURL()
 
         //TODO 9: Setup clicklisteners for play and pause buttons
 
@@ -58,12 +60,19 @@ class ExoPlayerActivity : AppCompatActivity() {
 
     fun createVideoPlayer() {
         // Need a track selector
+        val trackSelector = DefaultTrackSelector()
+
         // Need a load control
+        val loadControl = DefaultLoadControl()
+
         // Need a renderers factory
+        val rendererFactory = DefaultRenderersFactory(this)
 
         // Set up the ExoPlayer
+        videoExoPlayer = ExoPlayerFactory.newSimpleInstance(this, rendererFactory,trackSelector, loadControl)
 
         // Set up the scaling mode to crop and fit the video to the screen
+        videoExoPlayer.videoScalingMode = C.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING
 
     }
 
