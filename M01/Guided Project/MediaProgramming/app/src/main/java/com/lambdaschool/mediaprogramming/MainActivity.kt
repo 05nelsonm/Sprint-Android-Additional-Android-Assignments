@@ -60,7 +60,19 @@ class MainActivity : AppCompatActivity() {
     private fun seekBarFunctionality() {
         // In the SeekBar listener, when the seekbar progress is changed,
         // update the video progress
-        
+        video_seek_bar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                p0?.let {
+                    video_view.seekTo(it.progress)
+                }
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+            }
+
+            override fun onStopTrackingTouch(p0: SeekBar?) {
+            }
+        })
     }
 
     override fun onStart() {
