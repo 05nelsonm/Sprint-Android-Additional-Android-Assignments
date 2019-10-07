@@ -47,8 +47,15 @@ class ExoPlayerActivity : AppCompatActivity() {
         //setupVideoPlayerWithURL()
 
         //TODO 9: Setup clicklisteners for play and pause buttons
+        play.setOnClickListener {
+            videoExoPlayer.playWhenReady = true
+        }
+        pause.setOnClickListener {
+            videoExoPlayer.playWhenReady = false
+        }
 
         //TODO 9a: Set the player for the PlayerView
+        playerView.player = videoExoPlayer
     }
 
     fun setupVideoPlayerFromFileSystem() {
