@@ -43,8 +43,8 @@ class ExoPlayerActivity : AppCompatActivity() {
         //TODO 7: Create a function to setup video player from file system
         //This function can be switched out with the setupVideoPlayerWithURL to stream the video
         //from the internet.
-        setupVideoPlayerFromFileSystem()
-        //setupVideoPlayerWithURL()
+        //setupVideoPlayerFromFileSystem()
+        setupVideoPlayerWithURL()
 
         //TODO 9: Setup clicklisteners for play and pause buttons
         play.setOnClickListener {
@@ -64,6 +64,7 @@ class ExoPlayerActivity : AppCompatActivity() {
 
     //TODO 8: Create a function to setup video player with url to stream video through internet.
     fun setupVideoPlayerWithURL() {
+        videoExoPlayer.prepare(createUrlMediaSource(URL))
     }
 
     fun createVideoPlayer() {
